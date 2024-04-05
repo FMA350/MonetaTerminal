@@ -1,6 +1,3 @@
-import threading
-import os
-import logging 
 
 from cli.cli_interpreter import CLI
 from endpoints.server_wrapper import ServerWrapper
@@ -11,21 +8,19 @@ def setup_logging_factory():
     factory.set_default_path(os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", "logs",)) + "/" )
 
 def start_server():
-    server = ServerWrapper()
-    tcp_server = threading.Thread(target=server.run_server)
-    tcp_server.run()
+    # server = ServerWrapper()
+    # tcp_server = threading.Thread(target=server.run_server)
+    # tcp_server.run()
 
 def start_cli():
-    cli = CLI()
-    cli_loop = threading.Thread(target=cli.MainLoop)
-    cli_loop.run()
+    # cli = CLI()
+    # cli_loop = threading.Thread(target=cli.MainLoop)
+    # cli_loop.run()
 
 
-def main() -> None:
+fn main() -> None:
     try:
         setup_logging_factory()
         start_cli()
     finally:
         logging.shutdown()
-if __name__ == "__main__":
-    main()
